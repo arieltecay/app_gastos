@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { BASE_URL } from '../../utils/url';
+import { BASE_URL_PROD } from '../../utils/url';
 import { getUserFromStorage } from '../../utils/getUserFromStorage';
 
 //get the token
 const token = getUserFromStorage();
 //add category
 export const addCategoryAPI = async ({ name, type }) => {
-    const response = await axios.post(`${BASE_URL}/category/create`, { name, type }, {
+    const response = await axios.post(`${BASE_URL_PROD}/category/create`, { name, type }, {
         headers: {
             'x-auth-token': 'Bearer ' + token,
         },
@@ -16,7 +16,7 @@ export const addCategoryAPI = async ({ name, type }) => {
 };
 //list all categories
 export const listCategoryAPI = async () => {
-    const response = await axios.get(`${BASE_URL}/category/lists`, {
+    const response = await axios.get(`${BASE_URL_PROD}/category/lists`, {
         headers: {
             'x-auth-token': 'Bearer ' + token,
         },
@@ -26,7 +26,7 @@ export const listCategoryAPI = async () => {
 
 //delete category
 export const deleteCategoryAPI = async (id) => {
-    const response = await axios.delete(`${BASE_URL}/category/delete/${id}`, {
+    const response = await axios.delete(`${BASE_URL_PROD}/category/delete/${id}`, {
         headers: {
             'x-auth-token': 'Bearer ' + token,
         },
@@ -36,7 +36,7 @@ export const deleteCategoryAPI = async (id) => {
 
 //update category
 export const updateCategoryAPI = async ({ id, name, type }) => {
-    const response = await axios.put(`${BASE_URL}/category/update/${id}`, { name, type }, {
+    const response = await axios.put(`${BASE_URL_PROD}/category/update/${id}`, { name, type }, {
         headers: {
             'x-auth-token': 'Bearer ' + token,
         },

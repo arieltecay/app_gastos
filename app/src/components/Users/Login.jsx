@@ -8,7 +8,6 @@ import { FaEnvelope, FaLock } from "react-icons/fa";
 import { loginAPI } from "../../services/users/userServices";
 import AlertMessage from "../Alert/AlertMessage";
 import { authSuccess } from "../../redux/slice/authSlice";
-import { useEffect } from "react";
 //validations
 const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Email is Required"),
@@ -28,25 +27,19 @@ const LoginForm = () => {
       password: "",
     },
     validationSchema,
-    onSubmit: (values) => {
-      //http request
-      mutateAsync(values)
-        .then((res) => {
-          dispatch(authSuccess(res));
-          //save in localsotrage
-          localStorage.setItem("userInfo", JSON.stringify(res));
-        })
-        .catch((err) => { console.log(err); });
+    onSubmit: async (values) => {
+      try {
+        const res = await mutateAsync(values);
+        dispatch(authSuccess(res));
+        localStorage.setItem("userInfo", JSON.stringify(res));
+        navigate("/dashboard")
+      } catch (err) {
+        
+        console.log(err);
+      }
     }
   });
-  useEffect(() => {
-    if (isSuccess) {
-      setTimeout(() => {
-        navigate("/dashboard");
-        window.location.reload();
-      }, 1000);
-    }
-  })
+
   return (
     <form onSubmit={formik.handleSubmit} className="max-w-md mx-auto my-10 bg-white p-6 rounded-xl shadow-lg space-y-6 border border-gray-200">
       <h2 className="text-3xl font-semibold text-center text-gray-800">

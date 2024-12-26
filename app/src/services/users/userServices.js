@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE_URL } from '../../utils/url';
+import { BASE_URL_PROD } from '../../utils/url';
 import { getUserFromStorage } from '../../utils/getUserFromStorage';
 
 //get the token
@@ -7,7 +7,7 @@ const token = getUserFromStorage();
 
 //login
 export const loginAPI = async ({ email, password }) => {
-    const response = await axios.post(`${BASE_URL}/users/login`, {
+    const response = await axios.post(`${BASE_URL_PROD}/users/login`, {
         email,
         password,
     });
@@ -19,7 +19,7 @@ export const loginAPI = async ({ email, password }) => {
 
 //register
 export const registerAPI = async ({ email, password, username }) => {
-    const response = await axios.post(`${BASE_URL}/users/register`, {
+    const response = await axios.post(`${BASE_URL_PROD}/users/register`, {
         email,
         password,
         username,
@@ -30,7 +30,7 @@ export const registerAPI = async ({ email, password, username }) => {
 
 //change password
 export const changePasswordAPI = async (newPassword) => {
-    const response = await axios.put(`${BASE_URL}/users/change-password`, {
+    const response = await axios.put(`${BASE_URL_PROD}/users/change-password`, {
         newPassword,
     }, {
         headers: {
@@ -43,7 +43,7 @@ export const changePasswordAPI = async (newPassword) => {
 
 //update user profile
 export const updateUserProfileAPI = async ({ username, email }) => {
-    const response = await axios.put(`${BASE_URL}/users/update-profile`, {
+    const response = await axios.put(`${BASE_URL_PROD}/users/update-profile`, {
         username,
         email,
     }, {

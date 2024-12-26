@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "clean": "rm -rf node_modules package-lock.json && npm cache clean --force && npm i"
   },
   "keywords": [],
   "author": "",
