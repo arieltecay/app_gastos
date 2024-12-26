@@ -21,12 +21,31 @@ const transactionCtrl = {
         res.status(201).json(transactionCreated);
     }),
     lists: asyncHandler(async (req, res) => {
-        const transactions = await transaction.find({ user: req.user });
-        res.status(200).json(transactions);
+        const { page, limitPerPage = 10 } = req.query;
+
+        try {
+            const transactions = await transaction.find({ user: req.user })
+                .sort({ date: -1 })
+                .skip((page - 1) * limitPerPage)
+                .limit(limitPerPage);
+
+            const totalTransactions = await transaction.countDocuments({ user: req.user });
+            const totalPages = Math.ceil(totalTransactions / limitPerPage);
+
+            res.status(200).json({
+                transactions,
+                totalTransactions,
+                totalPages,
+                currentPage: page
+            });
+        } catch (error) {
+            res.status(500).json({ message: "Error fetching transactions", error });
+        }
     }),
+
     getFilteredTransactions: asyncHandler(async (req, res) => {
-        const { startDate, endDate, type, category } = req.query;
-        let filter = { user: req.user };
+        const { startDate, endDate, type, category, page = 1, limit = 10 } = req.query;
+        const filter = { user: req.user };
         if (startDate && endDate) {
             filter.date = { $gte: startDate, $lte: endDate };
         }
@@ -35,15 +54,24 @@ const transactionCtrl = {
         }
         if (category) {
             if (category === 'all') {
-                //do nothing
             } else if (category === 'Uncategorized') {
                 filter.category = 'Uncategorized';
             } else {
                 filter.category = category;
             }
-            const transactions = await transaction.find(filter).sort({ date: -1 });
-            res.status(200).json(transactions);
         }
+        const transactions = await transaction.find(filter)
+            .sort({ date: -1 })
+            .skip((Number(page) - 1) * limit)
+            .limit(Number(limit));
+        const total = await transaction.countDocuments(filter);
+        res.status(200).json({
+            page: Number(page),
+            limit: Number(limit),
+            total: total,
+            totalPages: Math.ceil(total / limit),
+            transactions,
+        });
     }),
     update: asyncHandler(async (req, res) => {
         const transactionId = req.params.id;

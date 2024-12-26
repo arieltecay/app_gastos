@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { FaTrash, FaEdit, FaPrint } from "react-icons/fa";
 
@@ -17,11 +17,12 @@ const TransactionList = () => {
     endDate: "",
     type: "",
     category: "all",
+    page: 1, // Add page to filters
   });
   //!Handle Filter Change
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
-    setFilters((prev) => ({ ...prev, [name]: value }));
+    setFilters((prev) => ({ ...prev, [name]: value, page: 1 })); // Reset to page 1 on filter change
   };
 
   //fetching
@@ -55,17 +56,11 @@ const TransactionList = () => {
     queryKey: ["total-amount", filters],
   });
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 20;
-
   const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    setFilters((prev) => ({ ...prev, page: pageNumber }));
   };
 
-  const paginatedTransactions = transactions?.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  console.log(transactions);
 
   return (
     <div className="my-4 p-4 shadow-lg rounded-lg bg-white">
@@ -135,7 +130,7 @@ const TransactionList = () => {
             <ClipLoader size={50} color={"#123abc"} loading={true} />
           ) : (
             <ul className="list-disc pl-5 space-y-2">
-              {paginatedTransactions?.map((transaction) => (
+              {transactions?.transactions?.map((transaction) => (
                 <li
                   key={transaction._id}
                   className="bg-white p-3 rounded-md shadow border border-gray-200 flex justify-between items-center"
@@ -186,21 +181,18 @@ const TransactionList = () => {
           )}
           {/* Pagination */}
           <div className="flex justify-center mt-4">
-            {Array.from(
-              { length: Math.ceil(transactions?.length / itemsPerPage) },
-              (_, index) => (
-                <button
-                  key={index}
-                  onClick={() => handlePageChange(index + 1)}
-                  className={`mx-1 px-3 py-1 rounded-md ${currentPage === index + 1
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200 text-gray-700"
-                    }`}
-                >
-                  {index + 1}
-                </button>
-              )
-            )}
+            {Array.from({ length: transactions?.totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageChange(index + 1)}
+                className={`mx-1 px-3 py-1 rounded-md ${transactions?.page === index + 1
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-700"
+                  }`}
+              >
+                {index + 1}
+              </button>
+            ))}
           </div>
         </div>
       </div>
