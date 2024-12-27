@@ -15,27 +15,27 @@ const HeroSection = () => {
                 <div className="max-w-7xl mx-auto flex flex-col items-center">
                     {/* Heading */}
                     <h1 className="text-5xl font-bold text-center">
-                        Contról de prestamos personales
+                        Contról de gastos
                     </h1>
 
                     {/* Subheading */}
                     <p className="mt-4 text-xl text-center">
-                        Administra los prestamos personales de tus clientes de forma más profesional y eficiente.
+                        Administra todos los gastos personales y de tu negocio en un solo lugar.
                     </p>
 
                     {/* Feature Icons */}
                     <div className="flex space-x-8 mt-10">
                         <div className="flex flex-col items-center">
                             <FaMoneyBillWave className="text-3xl" />
-                            <p className="mt-2">Efficient Tracking</p>
+                            <p className="mt-2">Eficiente y veloz</p>
                         </div>
                         <div className="flex flex-col items-center">
                             <FaFilter className="text-3xl" />
-                            <p className="mt-2">Busquedas faciles de clientes</p>
+                            <p className="mt-2">Busquedas faciles gastos</p>
                         </div>
                         <div className="flex flex-col items-center">
                             <IoIosStats className="text-3xl" />
-                            <p className="mt-2">Control completo de las cuotas</p>
+                            <p className="mt-2">Control completo</p>
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@ const HeroSection = () => {
             {/* How it works */}
             <div className="py-20 px-4">
                 <h2 className="text-3xl font-bold text-center text-gray-800">
-                    ¿Como funciona LoansTuc?
+                    ¿Como funciona gastos personales?
                 </h2>
                 <div className="mt-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Step 1 */}
@@ -58,7 +58,7 @@ const HeroSection = () => {
                         <div className="p-4 rounded-full bg-blue-500 text-white mb-4">
                             <FaSignInAlt className="text-xl" />
                         </div>
-                        <h3 className="mb-2 font-semibold">Sign Up</h3>
+                        <h3 className="mb-2 font-semibold">Creación de cuenta</h3>
                         <p>Solicita una pruebas por 30 días libres.</p>
                     </div>
                     {/* Step 2 */}
@@ -66,15 +66,15 @@ const HeroSection = () => {
                         <div className="p-4 rounded-full bg-green-500 text-white mb-4">
                             <FaList className="text-xl" />
                         </div>
-                        <h3 className="mb-2 font-semibold">Add Transactions</h3>
-                        <p>Agrega tus clientes con sus saldos correspondientes</p>
+                        <h3 className="mb-2 font-semibold">Agrega información</h3>
+                        <p>Categorias y transacciones</p>
                     </div>
                     {/* Step 3 */}
                     <div className="flex flex-col items-center text-center">
                         <div className="p-4 rounded-full bg-yellow-500 text-white mb-4">
                             <FaChartPie className="text-xl" />
                         </div>
-                        <h3 className="mb-2 font-semibold">View Reports</h3>
+                        <h3 className="mb-2 font-semibold">Mira tus movimientos</h3>
                         <p>Mira y analiza todo el balance de tu cuenta.</p>
                     </div>
                 </div>

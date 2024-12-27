@@ -60,8 +60,6 @@ const TransactionList = () => {
     setFilters((prev) => ({ ...prev, page: pageNumber }));
   };
 
-  console.log(transactions);
-
   return (
     <div className="my-4 p-4 shadow-lg rounded-lg bg-white">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">

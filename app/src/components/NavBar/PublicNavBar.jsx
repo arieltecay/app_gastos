@@ -25,14 +25,14 @@ export default function PublicNavbar() {
                                     </Disclosure.Button>
                                 </div>
                                 <div className="flex flex-shrink-0 items-center">
-                                    {/* Logo */}
-                                    <CiMoneyBill className="h-8 w-auto text-green-500" />
                                 </div>
                                 <div className="hidden md:ml-6 md:flex md:space-x-8">
                                     <Link
                                         to="/"
                                         className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"
                                     >
+                                        {/* Logo */}
+                                        <CiMoneyBill className="h-8 w-auto text-green-500" />
                                         Control de Gastos
                                     </Link>
                                 </div>

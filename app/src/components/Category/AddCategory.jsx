@@ -82,9 +82,9 @@ const AddCategory = () => {
           id="type"
           className="w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
         >
-          <option value="">Select transaction type</option>
-          <option value="income">Income</option>
-          <option value="expense">Expense</option>
+          <option value="">Tipo de transacción</option>
+          <option value="income">Entrada</option>
+          <option value="expense">Salida</option>
         </select>
         {formik.touched.type && formik.errors.type && (
           <p className="text-red-500 text-xs">{formik.errors.type}</p>
@@ -95,7 +95,7 @@ const AddCategory = () => {
       <div className="flex flex-col">
         <label htmlFor="name" className="text-gray-700 font-medium">
           <SiDatabricks className="inline mr-2 text-blue-500" />
-          Name
+          Nombre
         </label>
         <input
           type="text"
@@ -114,7 +114,7 @@ const AddCategory = () => {
         type="submit"
         className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-200 transform"
       >
-        Add Category
+        Agregar
       </button>
     </form>
   );

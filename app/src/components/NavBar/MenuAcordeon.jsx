@@ -43,7 +43,7 @@ const MenuAcordeon = ({ title, optionLink }) => {
                     leaveFrom="transform scale-100 opacity-100"
                     leaveTo="transform scale-95 opacity-0"
                 >
-                    <MenuItems className="absolute mt-2 w-48 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <MenuItems className="absolute left-full mt-2 w-48 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                         <div className="py-1">
                             {optionLink.map((option, index) => {
                                 const Icon = iconMap[option.iconKey];
