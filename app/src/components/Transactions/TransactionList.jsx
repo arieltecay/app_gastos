@@ -93,7 +93,7 @@ const TransactionList = () => {
         </div>
         {/* Type */}
         <div className="relative">
-        <label htmlFor="type" className="block text-sm font-medium text-gray-700 text-left">
+          <label htmlFor="type" className="block text-sm font-medium text-gray-700 text-left">
             Tipo
           </label>
           <select
@@ -111,6 +111,9 @@ const TransactionList = () => {
         </div>
         {/* Category */}
         <div className="relative">
+          <label htmlFor="type" className="block text-sm font-medium text-gray-700 text-left">
+            Categorías
+          </label>
           <select
             value={filters.category}
             onChange={handleFilterChange}
@@ -137,7 +140,7 @@ const TransactionList = () => {
             Filtrar Transacciones
           </h3>
           <h3 className="text-xl font-semibold mb-4 text-gray-800">
-            Total: ${totalAmount}
+            Total: ${totalAmount?.toLocaleString()}
           </h3>
           {/* Create a spinner from fomik */}
           {categoryLoading || transactionsLoading ? (
@@ -147,7 +150,7 @@ const TransactionList = () => {
               {transactions?.transactions?.map((transaction) => (
                 <li
                   key={transaction._id}
-                  className="bg-white p-3 rounded-md shadow border border-gray-200 flex justify-between items-center"
+                  className="bg-white p-3 rounded-md shadow border border-gray-200 flex justify-between items-center below-700:flex below-700:flex-col"
                 >
                   <div>
                     <span className="font-medium text-gray-600">
@@ -159,12 +162,12 @@ const TransactionList = () => {
                         : "bg-red-100 text-red-800"
                         }`}
                     >
-                      {transaction.type.charAt(0).toUpperCase() +
+                      {transaction?.type.charAt(0).toUpperCase() +
                         transaction.type.slice(1)}
                     </span>
                     <span className="ml-2 text-gray-800">
-                      {transaction.category?.name} - $
-                      {transaction.amount.toLocaleString()}
+                      {transaction?.category?.name} - $
+                      {transaction?.amount.toLocaleString()}
                     </span>
                     <span className="text-sm text-gray-600 italic ml-2">
                       {transaction.description}
