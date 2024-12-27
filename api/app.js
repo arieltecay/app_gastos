@@ -26,6 +26,9 @@ mongoose.connect(urlprod).then(() => {
 const corsOptions = {
     origin: process.env.CORS_ORIGIN_PROD,
     AccessControlAllowOrigin: process.env.CORS_ORIGIN_PROD,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
     optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions));
