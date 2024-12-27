@@ -24,7 +24,7 @@ mongoose.connect(urlprod).then(() => {
 });
 
 const corsOptions = {
-    origin: process.env.CORS_ORIGIN,
+    origin: process.env.CORS_ORIGIN_PROD,
     optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions));
