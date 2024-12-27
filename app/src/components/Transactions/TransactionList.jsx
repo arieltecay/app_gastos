@@ -64,28 +64,44 @@ const TransactionList = () => {
     <div className="my-4 p-4 shadow-lg rounded-lg bg-white">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* Start Date */}
-        <input
-          type="date"
-          name="startDate"
-          value={filters.startDate}
-          onChange={handleFilterChange}
-          className="p-2 rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-        />
+        <div>
+          <label htmlFor="startDate" className="block text-sm font-medium text-gray-700  text-left">
+            Fecha Inicial
+          </label>
+          <input
+            type="date"
+            name="startDate"
+            id="startDate"
+            value={filters.startDate}
+            onChange={handleFilterChange}
+            className="mt-1 p-2 rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 w-full"
+          />
+        </div>
         {/* End Date */}
-        <input
-          value={filters.endDate}
-          onChange={handleFilterChange}
-          type="date"
-          name="endDate"
-          className="p-2 rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-        />
+        <div>
+          <label htmlFor="endDate" className="block text-sm font-medium text-gray-700  text-left">
+            Fecha Final
+          </label>
+          <input
+            value={filters.endDate}
+            onChange={handleFilterChange}
+            type="date"
+            id="endDate"
+            name="endDate"
+            className="mt-1 p-2 rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 w-full"
+          />
+        </div>
         {/* Type */}
         <div className="relative">
+        <label htmlFor="type" className="block text-sm font-medium text-gray-700 text-left">
+            Tipo
+          </label>
           <select
+            id="type"
             name="type"
             value={filters.type}
             onChange={handleFilterChange}
-            className="w-full p-2 rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 appearance-none"
+            className="w-full p-2 rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 appearance-none w-full"
           >
             <option value="">Todos</option>
             <option value="income">Entrada</option>
