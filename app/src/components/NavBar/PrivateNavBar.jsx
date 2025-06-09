@@ -52,7 +52,7 @@ export default function PrivateNavbar() {
 										<CiMoneyBill className="h-8 w-auto text-green-500 mr-1" />
 										Control de Gastos
 									</Link>
-									<MenuAcordeon
+{/* 									<MenuAcordeon
 										title="Préstamos"
 										optionLink={[
 											{ label: "Agregar saldo", linkTo: "/loans/add-money", iconKey: "bankDolar" },
@@ -61,7 +61,7 @@ export default function PrivateNavbar() {
 											{ label: "Información saldo", linkTo: "/status-account", iconKey: "informationCircle" },
 											{ label: "Información cliente", linkTo: "/info-client", iconKey: "userClient" },
 										]}
-									/>
+									/> */}
 									<Link
 										to="/add-transaction"
 										className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
