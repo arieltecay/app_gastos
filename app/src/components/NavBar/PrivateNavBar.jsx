@@ -37,7 +37,7 @@ export default function PrivateNavbar() {
 
 	return (
 		<Disclosure as="nav" className="bg-white">
-			{({ open }) => (
+			{({ open, close }) => (
 				<>
 					<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 						<div className="flex h-16 justify-between items-center">
@@ -52,7 +52,7 @@ export default function PrivateNavbar() {
 										<CiMoneyBill className="h-8 w-auto text-green-500 mr-1" />
 										Control de Gastos
 									</Link>
-{/* 									<MenuAcordeon
+									{/* 									<MenuAcordeon
 										title="Préstamos"
 										optionLink={[
 											{ label: "Agregar saldo", linkTo: "/loans/add-money", iconKey: "bankDolar" },
@@ -125,16 +125,25 @@ export default function PrivateNavbar() {
 									{ label: "Información cliente", linkTo: "/info-client", iconKey: "userClient" },
 								]}
 							/>
-							<Link to="/add-transaction" className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6">
+							<Link
+								onClick={close}
+								to="/add-transaction"
+								className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6">
 								Agregar Transacciones
 							</Link>
-							<Link to="/add-category" className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6">
+							<Link
+								onClick={close}
+								to="/add-category"
+								className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6">
 								Agregar Categoría
 							</Link>
 							<Link to="/categories" className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6">
 								Categorías
 							</Link>
-							<Link to="/dashboard" className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6">
+							<Link
+								onClick={close}
+								to="/dashboard"
+								className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6">
 								Dashboard
 							</Link>
 						</div>
