@@ -30,18 +30,25 @@ const LoginForm = () => {
     onSubmit: async (values) => {
       try {
         const res = await mutateAsync(values);
-        dispatch(authSuccess(res));
+        // Primero guardamos en localStorage
         localStorage.setItem("userInfo", JSON.stringify(res));
-        navigate("/dashboard")
+        // Luego actualizamos Redux
+        dispatch(authSuccess(res));
+        // Esperamos que Redux se actualice antes de navegar
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 100);
       } catch (err) {
-        
         console.log(err);
       }
-    }
+    },
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className="max-w-md mx-auto my-10 bg-white p-6 rounded-xl shadow-lg space-y-6 border border-gray-200">
+    <form
+      onSubmit={formik.handleSubmit}
+      className="max-w-md mx-auto my-10 bg-white p-6 rounded-xl shadow-lg space-y-6 border border-gray-200"
+    >
       <h2 className="text-3xl font-semibold text-center text-gray-800">
         Login
       </h2>
@@ -49,9 +56,13 @@ const LoginForm = () => {
         Login to access your account
       </p>
       {/* Alert Message */}
-      {isError && (<AlertMessage type="error" message={error.response.data.message} />)}
-      {isSuccess && (<AlertMessage type="success" message="Login Successfully" />)}
-      {isLoading && (<AlertMessage type="loading" message="Loading..." />)}
+      {isError && (
+        <AlertMessage type="error" message={error.response.data.message} />
+      )}
+      {isSuccess && (
+        <AlertMessage type="success" message="Login Successfully" />
+      )}
+      {isLoading && <AlertMessage type="loading" message="Loading..." />}
       {/* Input Field - Email */}
       <div className="relative">
         <FaEnvelope className="absolute top-3 left-3 text-gray-400" />
