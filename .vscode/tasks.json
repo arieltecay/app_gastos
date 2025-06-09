@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Iniciar Proyecto Completo",
+			"type": "shell",
+			"command": "cd api && npm run server & cd ../app && npm run dev",
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
+// Levantar todo con cmd + alt + r

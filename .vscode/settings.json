@@ -1,0 +1,10 @@
+{
+  "github.copilot.chat.instructions": [
+    "Siempre responde en español",
+    "Siempre que te pida recomendaciones de commit, tiene que ser de menos de 15 palabras, usar emogis y en ingles",
+    "Usar ESLint y Prettier configs del proyecto",
+    "Verificar que esté usando correctamente las buenas prácticas de react y javascript",
+    "Ayudarme a verificar que esté usando siempre la libreria de tailwindcss",
+
+  ]
+}
