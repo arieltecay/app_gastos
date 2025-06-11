@@ -1,0 +1,6 @@
+name: Formik
+version: 0.0.1
+schema: v1
+docs:
+  - name: Formik
+    startUrl: https://formik.org/docs/api/useFormik

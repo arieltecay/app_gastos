@@ -1,0 +1,6 @@
+name: React Router
+version: 0.0.1
+schema: v1
+docs:
+  - name: React Router
+    startUrl: https://api.reactrouter.com/v7/functions/react_router.ScrollRestoration.html

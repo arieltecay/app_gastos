@@ -1,0 +1,9 @@
+name: New rule
+version: 0.0.1
+schema: v1
+rules:
+  - Always give concise responses
+  - Siempre responde en español
+  - En los commits recomienda maximo 15 palabras y usa emojis Solo para los commits escribe en ingles
+  - Use emojis in the commit messages
+  - Verifica siempre los docs para poder mantener la concistencia de el proyecto y no agregar cosas por fuera
