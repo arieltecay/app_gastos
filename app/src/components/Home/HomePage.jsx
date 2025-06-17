@@ -1,126 +1,123 @@
 import {
-    FaMoneyBillWave,
-    FaSignInAlt,
-    FaList,
-    FaChartPie,
-    FaQuoteLeft,
+  FaMoneyBillWave,
+  FaSignInAlt,
+  FaList,
+  FaChartPie,
+  FaQuoteLeft,
 } from "react-icons/fa";
 import { IoIosStats } from "react-icons/io";
 import { FaFilter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+
 const HeroSection = () => {
-    return (
-        <>
-            <div className="bg-gradient-to-r from-green-400 to-blue-500 text-white py-20 px-4">
-                <div className="max-w-7xl mx-auto flex flex-col items-center">
-                    {/* Heading */}
-                    <h1 className="text-5xl font-bold text-center">
-                        Contról de gastos
-                    </h1>
+  return (
+    <>
+      {/* Hero Section con gradiente mejorado */}
+      <div className="bg-gradient-to-r from-emerald-400 via-teal-500 to-blue-500 text-white py-24 px-4 shadow-xl">
+        <div className="max-w-7xl mx-auto flex flex-col items-center">
+          <h1 className="text-6xl font-bold text-center tracking-tight">
+            Control de Gastos
+          </h1>
 
-                    {/* Subheading */}
-                    <p className="mt-4 text-xl text-center">
-                        Administra todos los gastos personales y de tu negocio en un solo lugar.
-                    </p>
+          <p className="mt-6 text-xl text-center max-w-2xl leading-relaxed">
+            La manera más inteligente de administrar tus finanzas personales y empresariales en una sola plataforma.
+          </p>
 
-                    {/* Feature Icons */}
-                    <div className="flex space-x-8 mt-10">
-                        <div className="flex flex-col items-center">
-                            <FaMoneyBillWave className="text-3xl" />
-                            <p className="mt-2">Eficiente y veloz</p>
-                        </div>
-                        <div className="flex flex-col items-center">
-                            <FaFilter className="text-3xl" />
-                            <p className="mt-2">Busquedas faciles gastos</p>
-                        </div>
-                        <div className="flex flex-col items-center">
-                            <IoIosStats className="text-3xl" />
-                            <p className="mt-2">Control completo</p>
-                        </div>
-                    </div>
+          {/* Iconos de características con hover effects */}
+          <div className="flex flex-wrap justify-center gap-12 mt-12">
+            <div className="flex flex-col items-center transform hover:scale-105 transition-transform duration-300">
+              <FaMoneyBillWave className="text-4xl text-white" />
+              <p className="mt-3 font-medium">Eficiente y Veloz</p>
+            </div>
+            <div className="flex flex-col items-center transform hover:scale-105 transition-transform duration-300">
+              <FaFilter className="text-4xl text-white" />
+              <p className="mt-3 font-medium">Búsqueda Inteligente</p>
+            </div>
+            <div className="flex flex-col items-center transform hover:scale-105 transition-transform duration-300">
+              <IoIosStats className="text-4xl text-white" />
+              <p className="mt-3 font-medium">Control Total</p>
+            </div>
+          </div>
 
-                    {/* Call to Action Button */}
-                    <Link to="/register">
-                        <button className="mt-8 px-6 py-3 bg-white text-green-500 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition duration-300">
-                            Puedes contactarnos
-                        </button>
-                    </Link>
-                </div>
+          {/* Botón CTA mejorado */}
+          <Link to="/register">
+            <button className="mt-12 px-8 py-4 bg-white text-emerald-600 text-lg font-semibold rounded-full shadow-lg hover:bg-gray-50 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+              Comienza Ahora Gratis
+            </button>
+          </Link>
+        </div>
+      </div>
+      {/* Sección Cómo Funciona */}
+      <div className="py-24 px-4 bg-gray-50">
+        <h2 className="text-4xl font-bold text-center text-gray-800">
+          ¿Cómo Funciona Nuestra Plataforma?
+        </h2>
+        <div className="mt-16 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="flex flex-col items-center text-center group">
+            <div className="p-5 rounded-full bg-blue-500 text-white mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+              <FaSignInAlt className="text-2xl" />
             </div>
-            {/* How it works */}
-            <div className="py-20 px-4">
-                <h2 className="text-3xl font-bold text-center text-gray-800">
-                    ¿Como funciona gastos personales?
-                </h2>
-                <div className="mt-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* Step 1 */}
-                    <div className="flex flex-col items-center text-center">
-                        <div className="p-4 rounded-full bg-blue-500 text-white mb-4">
-                            <FaSignInAlt className="text-xl" />
-                        </div>
-                        <h3 className="mb-2 font-semibold">Creación de cuenta</h3>
-                        <p>Solicita una pruebas por 30 días libres.</p>
-                    </div>
-                    {/* Step 2 */}
-                    <div className="flex flex-col items-center text-center">
-                        <div className="p-4 rounded-full bg-green-500 text-white mb-4">
-                            <FaList className="text-xl" />
-                        </div>
-                        <h3 className="mb-2 font-semibold">Agrega información</h3>
-                        <p>Categorias y transacciones</p>
-                    </div>
-                    {/* Step 3 */}
-                    <div className="flex flex-col items-center text-center">
-                        <div className="p-4 rounded-full bg-yellow-500 text-white mb-4">
-                            <FaChartPie className="text-xl" />
-                        </div>
-                        <h3 className="mb-2 font-semibold">Mira tus movimientos</h3>
-                        <p>Mira y analiza todo el balance de tu cuenta.</p>
-                    </div>
-                </div>
+            <h3 className="text-xl mb-3 font-semibold">Registro Gratuito</h3>
+            <p className="text-gray-600">Obtén 30 días de prueba sin compromiso</p>
+          </div>
+          <div className="flex flex-col items-center text-center group">
+            <div className="p-5 rounded-full bg-emerald-500 text-white mb-6 group-hover:bg-emerald-600 transition-colors duration-300">
+              <FaList className="text-2xl" />
             </div>
-            {/* Testimonials */}
-            <div className="bg-gray-100 py-20 px-4">
-                <h2 className="text-3xl font-bold text-center text-gray-800">
-                    What Our Users Say
-                </h2>
-                <div className="mt-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-white p-6 rounded-lg shadow-lg">
-                        <FaQuoteLeft className="text-xl text-gray-400" />
-                        <p className="mt-4">
-                            This app has revolutionized the way I track my expenses. Highly
-                            intuitive and user-friendly.
-                        </p>
-                        <p className="mt-4 font-bold">- Jane Doe</p>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow-lg">
-                        <FaQuoteLeft className="text-xl text-gray-400" />
-                        <p className="mt-4">
-                            Finally, a hassle-free way to manage my finances. The insights
-                            feature is a game changer!
-                        </p>
-                        <p className="mt-4 font-bold">- John Smith</p>
-                    </div>
-                </div>
+            <h3 className="text-xl mb-3 font-semibold">Gestiona tus Datos</h3>
+            <p className="text-gray-600">Organiza categorías y transacciones fácilmente</p>
+          </div>
+          <div className="flex flex-col items-center text-center group">
+            <div className="p-5 rounded-full bg-amber-500 text-white mb-6 group-hover:bg-amber-600 transition-colors duration-300">
+              <FaChartPie className="text-2xl" />
             </div>
-            {/* CTA */}
-            <div className="bg-blue-500 text-white py-20 px-4">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold">
-                        Ready to Take Control of Your Finances?
-                    </h2>
-                    <p className="mt-4">
-                        Join us now and start managing your expenses like a pro!
-                    </p>
-                    <Link to="/register">
-                        <button className="mt-8 px-6 py-3 bg-white text-blue-500 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition duration-300">
-                            Sign Up For Free
-                        </button>
-                    </Link>
-                </div>
-            </div>
-        </>
-    );
+            <h3 className="text-xl mb-3 font-semibold">Analiza tus Finanzas</h3>
+            <p className="text-gray-600">Visualiza y controla todos tus movimientos</p>
+          </div>
+        </div>
+      </div>
+      {/* Testimonios */}
+      <div className="bg-white py-24 px-4">
+        <h2 className="text-4xl font-bold text-center text-gray-800">
+          Opiniones de Nuestros Usuarios
+        </h2>
+        <div className="mt-16 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <FaQuoteLeft className="text-2xl text-emerald-500" />
+            <p className="mt-6 text-lg text-gray-700">
+              "Esta aplicación ha revolucionado la forma en que controlo mis gastos.
+              Es muy intuitiva y fácil de usar."
+            </p>
+            <p className="mt-6 font-bold text-gray-900">- María García</p>
+          </div>
+          <div className="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <FaQuoteLeft className="text-2xl text-emerald-500" />
+            <p className="mt-6 text-lg text-gray-700">
+              "Por fin encontré una manera sencilla de gestionar mis finanzas.
+              ¡Las estadísticas son increíbles!"
+            </p>
+            <p className="mt-6 font-bold text-gray-900">- Carlos Rodríguez</p>
+          </div>
+        </div>
+      </div>
+      {/* CTA Final */}
+      <div className="bg-gradient-to-r from-blue-500 to-emerald-500 text-white py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold">
+            ¿Listo para Tomar el Control de tus Finanzas?
+          </h2>
+          <p className="mt-6 text-xl">
+            Únete ahora y comienza a gestionar tus gastos como un profesional
+          </p>
+          <Link to="/register">
+            <button className="mt-12 px-8 py-4 bg-white text-blue-600 text-lg font-semibold rounded-full shadow-lg hover:bg-gray-50 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+              Registrarse Gratis
+            </button>
+          </Link>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default HeroSection;
