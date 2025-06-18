@@ -9,15 +9,12 @@ const api = axios.create({
 
 // Interceptor para agregar el token en cada request
 api.interceptors.request.use((config) => {
-  const token = JSON.parse(localStorage.getItem('userInfo'))?.token;
+  const token = getUserFromStorage();
   if (token) {
     config.headers['x-auth-token'] = `Bearer ${token}`;
   }
   return config;
 });
-
-//get the token
-const token = getUserFromStorage();
 
 //add a transaction
 export const addTransactionAPI = async (data) => {
@@ -56,22 +53,40 @@ export const updateTransactionAPI = async (id, data) => {
 };
 
 
+//Get total amount
 export const totalAmountAPI = async (filters) => {
-    const response = await fetch(`${BASE_URL_PROD}/transaction/totalAmount?startDate=${filters.startDate}&endDate=${filters.endDate}&type=${filters.type}&category=${filters.category}`, {
-        headers: {
-            'x-auth-token': 'Bearer ' + token,
-        },
-    });
-    const data = await response.json();
-    return data.totalAmount;
+
+
+
+
+
+
+
+    try {
+        const response = await api.get(`/transaction/totalAmount`, {
+            params: filters
+        });
+        return response.data.totalAmount;
+    } catch (error) {
+        console.error('Error fetching total amount:', error);
+        throw error;
+    }
 };
 
+//Print transaction
 export const printTransactionAPI = async (id) => {
-    const response = await fetch(`${BASE_URL_PROD}/transaction/print/${id}`, {
-        headers: {
-            'x-auth-token': 'Bearer ' + token,
-        },
-    });
-    const data = await response.json();
-    return data;
+
+
+
+
+
+
+
+    try {
+        const response = await api.get(`/transaction/print/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error printing transaction:', error);
+        throw error;
+    }
 };
