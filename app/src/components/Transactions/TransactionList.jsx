@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { FaTrash, FaEdit, FaPrint } from "react-icons/fa";
 
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import { listTransactionWithFiltersAPI, printTransactionAPI, totalAmountAPI } from "../../services/transactions/transactionService";
+import {
+  listTransactionWithFiltersAPI,
+  totalAmountAPI,
+} from "../../services/transactions/transactionService";
 import { listCategoryAPI } from "../../services/category/categoryServices";
 import { ClipLoader } from "react-spinners";
 import { Link, useNavigate } from "react-router-dom";
@@ -29,7 +32,6 @@ const TransactionList = () => {
   const {
     data: categoriesData,
     isLoading: categoryLoading,
-    error: categoryErr,
   } = useQuery({
     queryFn: listCategoryAPI,
     queryKey: ["list-categories"],
@@ -37,11 +39,7 @@ const TransactionList = () => {
   //fetching
   const {
     data: transactions,
-    isError,
     isLoading: transactionsLoading,
-    isFetched,
-    error,
-    refetch,
   } = useQuery({
     queryFn: () => listTransactionWithFiltersAPI(filters),
     queryKey: ["list-transactions", filters],
@@ -49,8 +47,6 @@ const TransactionList = () => {
   //fetching
   const {
     data: totalAmount,
-    isLoading: totalAmountLoading,
-    refetch: refetchTotalAmount,
   } = useQuery({
     queryFn: () => totalAmountAPI(filters),
     queryKey: ["total-amount", filters],
@@ -175,7 +171,7 @@ const TransactionList = () => {
                   </div>
                   <div className="flex space-x-3">
                     <button
-                      // onClick={() => handleUpdateTransaction(transaction._id)}
+                      onClick={() => navigate(`/edit-transaction/${transaction._id}`)}
                       className="text-blue-500 hover:text-blue-700"
                     >
                       <FaEdit />

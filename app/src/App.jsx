@@ -11,6 +11,7 @@ import CategoriesList from './components/Category/CategoryList'
 import UpdateCategory from './components/Category/UpdateCategory'
 import TransactionForm from './components/Transactions/TransactionForm'
 import TransactionList from './components/Transactions/TransactionList'
+import EditTransactionForm from './components/Transactions/EditTransactionForm'
 import UserProfile from './components/Users/UserProfile'
 import Loans from './components/Loans/Loans'
 import { AuthRoute } from './components/Auth/AuthRoute'
@@ -52,6 +53,11 @@ function App() {
         <Route path="/add-transaction" element={
           <AuthRoute>
             <TransactionForm />
+          </AuthRoute>
+        } />
+        <Route path="/edit-transaction/:transactionId" element={
+          <AuthRoute>
+            <EditTransactionForm />
           </AuthRoute>
         } />
         <Route path="/dashboard" element={
