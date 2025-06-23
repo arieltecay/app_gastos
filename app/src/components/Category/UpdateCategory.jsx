@@ -4,10 +4,11 @@ import {
   FaWallet,
 } from "react-icons/fa";
 import { SiDatabricks } from "react-icons/si";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateCategoryAPI } from "../../services/category/categoryServices";
+import { updateCategoryAPI, getCategoryAPI } from "../../services/category/categoryServices";
 import AlertMessage from "../Alert/AlertMessage";
+import { useEffect } from "react";
 
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -48,6 +49,25 @@ const UpdateCategory = () => {
         .catch((e) => console.log(e));
     },
   });
+
+  const { data: categoryData, isLoading: isLoadingCategory } = useQuery({
+    queryKey: ["category", id],
+    queryFn: () => getCategoryAPI(id),
+    enabled: !!id,
+  });
+
+  useEffect(() => {
+    if (categoryData) {
+      formik.setValues({
+        type: categoryData.type || "",
+        name: categoryData.name || "",
+      });
+    }
+  }, [categoryData, formik]);
+
+  if (isLoadingCategory) {
+    return <AlertMessage type="info" message="Loading category data..." />;
+  }
 
   return (
     <form
