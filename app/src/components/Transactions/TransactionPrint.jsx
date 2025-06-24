@@ -39,7 +39,11 @@ const TransactionPrint = () => {
       </div>
       <div className="mt-4">
         <span className="font-medium">Firma:</span>
-        <div className="mt-8">_________________________</div>
+        <div className="mt-2">_________________________</div>
+      </div>
+      <div className="mt-4">
+        <span className="font-medium">Aclaración:</span>
+        <div className="mt-2">_________________________</div>
       </div>
     </div>
   );
