@@ -81,7 +81,7 @@ const UpdateCategory = () => {
             <p className="text-gray-600">Fill in the details below.</p>
           </div>
           {/* Display alert message */}
-          {isPending && <AlertMessage type="info" message="Updating..." />}
+          {isPending && <AlertMessage type="loading" message="Actualizando..." />}
           {isError && (
             <AlertMessage
               type="error"
