@@ -63,7 +63,7 @@ const UpdateCategory = () => {
         name: categoryData.name || "",
       });
     }
-  }, [categoryData, formik]);
+  }, [categoryData]);
 
   if (isLoadingCategory) {
     return <AlertMessage type="info" message="Loading category data..." />;
